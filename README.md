@@ -64,9 +64,14 @@ For the risk-sensitive criterion, the dynamic programming equation yields the no
 
 
 $$
-V_t + \inf_{u} 
-{ x^2 + \alpha u^2 + u V_x + \frac{\sigma^2}{2} V_{xx} + \frac{\theta \sigma^2}{2} (V_x)^2} = 0,
-\qquad V(T,x) = g(x).
+\begin{aligned}
+V_t + \inf_{u} \Big\{
+& x^2 + \alpha u^2 + u V_x \\
+& + \frac{\sigma^2}{2} V_{xx}
++ \frac{\theta \sigma^2}{2} (V_x)^2
+\Big\} = 0, \\
+V(T,x) &= g(x)
+\end{aligned}
 $$
 
 
