@@ -39,13 +39,13 @@ $$
 For $\theta\neq 0$ (risk-sensitive / exponential-of-integral criterion),
 
 $$
-J_\theta(u) = \frac{1}{\theta}\log \mathbb{E}\!\left[\exp\!\left(\theta\Big(\int_0^T \ell(X_t,u_t)\,dt + g(X_T)\Big)\right)\right].
+J_\theta(u) = \frac{1}{\theta}\log \mathbb{E}\left[\exp\left(\theta\Big(\int_0^T \ell(X_t,u_t)\,dt + g(X_T)\Big)\right)\right].
 $$
 
 Risk-neutral is recovered as $\theta\to 0$:
 
 $$
-J_0(u) = \mathbb{E}\!\left[\int_0^T \ell(X_t,u_t)\,dt + g(X_T)\right].
+J_0(u) = \mathbb{E} \left[\int_0^T \ell(X_t,u_t)\,dt + g(X_T)\right].
 $$
 
 ---
@@ -128,7 +128,7 @@ I iteratively alternate:
 2. **Policy improvement**:
 
 $$
-U^{(k+1)}(t,x) = \Pi_{[-u_{\max},u_{\max}]}\!\left(-\frac{V_x^{(k)}(t,x)}{2\alpha}\right),
+U^{(k+1)}(t,x) = \Pi_{[-u_{\max},u_{\max}]}\left(-\frac{V_x^{(k)}(t,x)}{2\alpha}\right),
 $$
 
 where $\Pi$ is clipping to stabilize numerics.
@@ -287,7 +287,7 @@ The sensitivity sweep computes:
 - feedback-gain proxy near $x=0$:
 
 $$
-\text{gain}(\theta,\sigma)\;\approx\;\mathbb{E}_{|x|\le 1}\left[\frac{u^*(0,x)}{x}\right],
+\text{gain}(\theta,\sigma) \approx \mathbb{E}_{|x|\le 1}\left[\frac{u^*(0,x)}{x}\right],
 $$
 
 - Monte Carlo mean cost $\widehat{J}_0$
