@@ -15,24 +15,29 @@ This repository studies a **risk-sensitive linear-quadratic stochastic control**
 
 ### Controlled diffusion
 Consider the 1D controlled SDE
+
 $$
 dX_t = u_t\,dt + \sigma\, dW_t, \qquad t\in[0,T],
 $$
+
 where $u_t$ is the control and $\sigma>0$ is the volatility.
 
 ### Running and terminal costs
 Running cost:
+
 $$
 \ell(x,u) = x^2 + \alpha u^2,\qquad \alpha>0.
 $$
 
 Terminal cost (used in the experiments):
+
 $$
 g(x)= q_T x^2.
 $$
 
 ### Risk-sensitive objective
 For $\theta\neq 0$ (risk-sensitive / exponential-of-integral criterion),
+
 $$
 J_\theta(u)
 =
@@ -42,6 +47,7 @@ J_\theta(u)
 $$
 
 Risk-neutral is recovered as $\theta\to 0$:
+
 $$
 J_0(u) = \mathbb{E}\!\left[\int_0^T \ell(X_t,u_t)\,dt + g(X_T)\right].
 $$
@@ -51,12 +57,14 @@ $$
 ## 2) Risk-sensitive HJB derivation (core equation)
 
 Let the value function be
+
 $$
 V(t,x)=\inf_u J_\theta^{t,x}(u),
 $$
 where the superscript indicates starting from $X_t=x$.
 
 For the risk-sensitive criterion, the dynamic programming equation yields the nonlinear HJB:
+
 $$
 V_t
 +\inf_u\left\{
@@ -67,6 +75,7 @@ x^2+\alpha u^2 + uV_x + \frac{\sigma^2}{2}V_{xx}
 $$
 
 The minimizer of the Hamiltonian is explicit:
+
 $$
 \frac{\partial}{\partial u}\Big(\alpha u^2 + uV_x\Big)=2\alpha u + V_x=0
 \quad\Rightarrow\quad
@@ -74,6 +83,7 @@ u^*(t,x)= -\frac{V_x(t,x)}{2\alpha}.
 $$
 
 Substituting $u^*$ back gives the reduced nonlinear PDE:
+
 $$
 V_t
 + x^2
@@ -89,20 +99,24 @@ $$
 ## 3) Numerical method
 
 On a bounded spatial domain
+
 $$
 x\in[-X_{\max},X_{\max}],\qquad t\in[0,T],
 $$
+
 is solved using a uniform grid with $(N_t,N_x)$ points.
 
 ### Boundary and terminal conditions
 - Terminal: $V(T,x)=q_T x^2$
 - Dirichlet boundaries (stable and simple):
+
 $$
 V(t,\pm X_{\max})=\kappa X_{\max}^2
 $$
 
 ### Discretization choices
 The evaluation PDE (for a fixed control field $u(t,x)$) is:
+
 $$
 V_t + \ell(x,u) + uV_x + \frac{\sigma^2}{2}V_{xx} + \frac{\theta\sigma^2}{2}(V_x)^2 = 0.
 $$
@@ -122,9 +136,11 @@ I iteratively alternate:
 
 1. **Policy evaluation**: given $U^{(k)}(t,x)$ solve for $V^{(k)}(t,x)$
 2. **Policy improvement**:
+
 $$
 U^{(k+1)}(t,x) = \Pi_{[-u_{\max},u_{\max}]}\!\left(-\frac{V_x^{(k)}(t,x)}{2\alpha}\right),
 $$
+
 where $\Pi$ is clipping to stabilize numerics.
 
 ### Handling the risk-sensitive nonlinearity
@@ -137,17 +153,20 @@ For $\theta>0$, evaluation uses a **Picard** (fixed-point) loop for the $(V_x)^2
 ## 5) Monte Carlo validation (Euler–Maruyama)
 
 Validate computed feedback policies $u^*(t,x)$ by simulating:
+
 $$
 X_{k+1} = X_k + u(t_k,X_k)\,\Delta t + \sigma\sqrt{\Delta t}\,Z_k,\qquad Z_k\sim\mathcal{N}(0,1).
 $$
 
 Estimators:
 - **Risk-neutral mean cost**
+
 $$
 \widehat{J}_0 = \frac{1}{M}\sum_{i=1}^M\left(\sum_{k}\ell(X_k^{(i)},u_k^{(i)})\Delta t + g(X_T^{(i)})\right).
 $$
 
 - **Risk-sensitive exponential cost** (evaluated at some $\theta_{\text{eval}}$)
+
 $$
 \widehat{J}_{\theta_{\text{eval}}}
 =
@@ -281,9 +300,11 @@ Monte Carlo estimates (same $x_0=1$, $M=20000$):
 
 The sensitivity sweep computes:
 - feedback-gain proxy near $x=0$:
+
 $$
 \text{gain}(\theta,\sigma)\;\approx\;\mathbb{E}_{|x|\le 1}\left[\frac{u^*(0,x)}{x}\right],
 $$
+
 - Monte Carlo mean cost $\widehat{J}_0$
 - Monte Carlo exponential cost $\widehat{J}_{\theta}$ (evaluated at the same $\theta$ in the sweep)
 
