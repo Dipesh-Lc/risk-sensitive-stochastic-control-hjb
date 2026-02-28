@@ -2,7 +2,7 @@
 
 This repository studies a **risk-sensitive linear-quadratic stochastic control** problem and implements:
 
-- Derivation of the **nonlinear risk-sensitive HJB**
+- Formulation of the **nonlinear risk-sensitive HJB**
 - A **finite-difference PDE solver** (implicit diffusion + upwind drift)
 - **Policy iteration** (Howard / fixed-point) for the optimal feedback control
 - **Risk-neutral vs risk-averse** comparisons
