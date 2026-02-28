@@ -1,0 +1,7 @@
+Risk-neutral mean cost:
+theta0_policy: 1.4964773335 (SE=0.0047159121)
+theta1_policy: 1.5411258000 (SE=0.0043552512)
+
+Risk-sensitive exponential cost (theta_eval=1.0):
+theta0_policy: 2.8486138209 (SE~0.0999265748)
+theta1_policy: 2.5883418799 (SE~0.0674449254)

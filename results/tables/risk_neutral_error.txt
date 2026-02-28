@@ -1,0 +1,3 @@
+L2_error_masked: 6.026702e-03
+Linf_error_masked: 6.322737e-03
+Rel_L2_error: 1.389955e-03
