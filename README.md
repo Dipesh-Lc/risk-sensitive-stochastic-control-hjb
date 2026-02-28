@@ -61,6 +61,7 @@ $$
 where the superscript indicates starting from $X_t=x$.
 
 For the risk-sensitive criterion, the dynamic programming equation yields the nonlinear HJB:
+---
 
 $$
 V_t
@@ -74,6 +75,7 @@ V_t
 V(T,x) = g(x).
 $$
 
+---
 The minimizer of the Hamiltonian is explicit:
 
 $$
