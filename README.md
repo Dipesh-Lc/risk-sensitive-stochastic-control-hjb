@@ -39,11 +39,7 @@ $$
 For $\theta\neq 0$ (risk-sensitive / exponential-of-integral criterion),
 
 $$
-J_\theta(u)
-=
-\frac{1}{\theta}\log \mathbb{E}\!\left[
-\exp\!\left(\theta\Big(\int_0^T \ell(X_t,u_t)\,dt + g(X_T)\Big)\right)
-\right].
+J_\theta(u) = \frac{1}{\theta}\log \mathbb{E}\!\left[\exp\!\left(\theta\Big(\int_0^T \ell(X_t,u_t)\,dt + g(X_T)\Big)\right)\right].
 $$
 
 Risk-neutral is recovered as $\theta\to 0$:
@@ -61,17 +57,13 @@ Let the value function be
 $$
 V(t,x)=\inf_u J_\theta^{t,x}(u),
 $$
+
 where the superscript indicates starting from $X_t=x$.
 
 For the risk-sensitive criterion, the dynamic programming equation yields the nonlinear HJB:
 
 $$
-V_t
-+\inf_u\left\{
-x^2+\alpha u^2 + uV_x + \frac{\sigma^2}{2}V_{xx}
-+ \frac{\theta\sigma^2}{2}(V_x)^2
-\right\}=0,
-\qquad V(T,x)=g(x).
+V_t+\inf_u\left\{x^2+\alpha u^2 + uV_x + \frac{\sigma^2}{2}V_{xx}+ \frac{\theta\sigma^2}{2}(V_x)^2\right\}=0,\qquad V(T,x)=g(x).
 $$
 
 The minimizer of the Hamiltonian is explicit:
@@ -85,11 +77,7 @@ $$
 Substituting $u^*$ back gives the reduced nonlinear PDE:
 
 $$
-V_t
-+ x^2
-+\frac{\sigma^2}{2}V_{xx}
-+\left(\frac{\theta\sigma^2}{2}-\frac{1}{4\alpha}\right)(V_x)^2
-=0.
+V_t+ x^2+\frac{\sigma^2}{2}V_{xx}+\left(\frac{\theta\sigma^2}{2}-\frac{1}{4\alpha}\right)(V_x)^2=0.
 $$
 
 > **Nonlinearity:** the $(V_x)^2$ term (present when $\theta\neq 0$)
@@ -115,7 +103,7 @@ V(t,\pm X_{\max})=\kappa X_{\max}^2
 $$
 
 ### Discretization choices
-The evaluation PDE (for a fixed control field $u(t,x)$) is:
+The evaluation PDE ( for a fixed control field $u(t,x)$ ) is:
 
 $$
 V_t + \ell(x,u) + uV_x + \frac{\sigma^2}{2}V_{xx} + \frac{\theta\sigma^2}{2}(V_x)^2 = 0.
@@ -168,12 +156,7 @@ $$
 - **Risk-sensitive exponential cost** (evaluated at some $\theta_{\text{eval}}$)
 
 $$
-\widehat{J}_{\theta_{\text{eval}}}
-=
-\frac{1}{\theta_{\text{eval}}}\log\left(
-\frac{1}{M}\sum_{i=1}^M
-\exp\!\left(\theta_{\text{eval}}\Big(\sum_k \ell(X_k^{(i)},u_k^{(i)})\Delta t + g(X_T^{(i)})\Big)\right)
-\right).
+\widehat{J}_{\theta_{\text{eval}}} = \frac{1}{\theta_{\text{eval}}}\log\left( \frac{1}{M}\sum_{i=1}^M \exp\!\left(\theta_{\text{eval}}\Big(\sum_k \ell(X_k^{(i)},u_k^{(i)})\Delta t + g(X_T^{(i)})\Big)\right) \right).
 $$
 
 ---
@@ -317,10 +300,10 @@ $$
    Larger $\sigma$ amplifies the impact of risk sensitivity: the gain curve steepens and the exponential cost grows quickly.
 
 3. **Mean cost grows mildly with $\theta$**  
-   The mean-cost curves are relatively flat compared to the exponential-cost curves—consistent with the idea that risk sensitivity is primarily changing tail/variance behavior.
+   The mean-cost curves are relatively flat compared to the exponential-cost curves, consistent with the idea that risk sensitivity is primarily changing tail / variance behavior.
 
 4. **Exponential cost can have a “sweet spot” at moderate $\theta$**  
-   In the sweep outputs, $\widehat{J}_{\theta}$ decreases from $\theta=0$ to a small positive $\theta$ for several $\sigma$ values, then increases for larger $\theta$.  
+   In the sweep outputs, $\widehat{J}_{\theta}$ decreases from $\theta=0$ to a small positive $\theta$ for several $\sigma$ values, then increases for larger $\theta$.
    This can happen because moderate risk sensitivity reduces variability, while too-large $\theta$ drives stronger controls and increases the integral cost, and clipping ($u_{\max}$) can also influence the optimum.
 
 ---
