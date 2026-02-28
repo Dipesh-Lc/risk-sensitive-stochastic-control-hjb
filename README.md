@@ -316,14 +316,14 @@ $$
 
 The experiment scripts save key figures to `results/plots/` including:
 
-- `U0_vs_riccati.png` — risk-neutral $u^*(0,x)$ vs Riccati benchmark
-- `V0_risk_neutral.png` — value slice $V(0,x)$ (risk-neutral)
-- `U0_risk_neutral.png` — policy slice $u^*(0,x)$ (risk-neutral)
-- `U0_over_x_risk_neutral.png` — sanity check: $u^*(0,x)/x$ near $0$
-- `U0_theta_compare.png` — $u^*(0,x)$: $\theta=0$ vs $\theta=1$
-- `U0_over_x_theta_compare.png` — gain proxy comparison
-- `V0_theta_compare.png` — $V(0,x)$: $\theta=0$ vs $\theta=1$
-- `mc_cost_bar.png` — MC mean-cost bars (zero vs Riccati vs PDE)
+- `U0_vs_riccati.png` -- risk-neutral $u^*(0,x)$ vs Riccati benchmark
+- `V0_risk_neutral.png` -- value slice $V(0,x)$ (risk-neutral)
+- `U0_risk_neutral.png` -- policy slice $u^*(0,x)$ (risk-neutral)
+- `U0_over_x_risk_neutral.png` -- sanity check: $u^*(0,x)/x$ near $0$
+- `U0_theta_compare.png` -- $u^*(0,x)$: $\theta=0$ vs $\theta=1$
+- `U0_over_x_theta_compare.png` -- gain proxy comparison
+- `V0_theta_compare.png` -- $V(0,x)$: $\theta=0$ vs $\theta=1$
+- `mc_cost_bar.png` -- MC mean-cost bars (zero vs Riccati vs PDE)
 - `gain_vs_theta.png`, `gain_vs_theta_by_sigma.png`
 - `Jexp_vs_theta.png`, `Jexp_vs_theta_by_sigma.png`
 - `Jmean_vs_theta_by_sigma.png`
