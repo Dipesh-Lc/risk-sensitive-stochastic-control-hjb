@@ -63,7 +63,15 @@ where the superscript indicates starting from $X_t=x$.
 For the risk-sensitive criterion, the dynamic programming equation yields the nonlinear HJB:
 
 $$
-V_t+\inf_u\left\{x^2+\alpha u^2 + uV_x + \frac{\sigma^2}{2}V_{xx}+ \frac{\theta\sigma^2}{2}(V_x)^2\right\}=0,\qquad V(T,x)=g(x).
+V_t
++ \inf_u \left\{
+    x^2 + \alpha u^2 + u V_x
+    + \frac{\sigma^2}{2} V_{xx}
+    + \frac{\theta \sigma^2}{2} (V_x)^2
+\right\}
+= 0,
+\qquad
+V(T,x) = g(x).
 $$
 
 The minimizer of the Hamiltonian is explicit:
@@ -279,7 +287,7 @@ Monte Carlo estimates (same $x_0=1$, $M=20000$):
 
 ---
 
-## 10) Sigma–theta sensitivity: what the plots show
+## 10) Sigma-theta sensitivity: what the plots show
 
 The sensitivity sweep computes:
 - feedback-gain proxy near $x=0$:
@@ -302,8 +310,10 @@ $$
 3. **Mean cost grows mildly with $\theta$**  
    The mean-cost curves are relatively flat compared to the exponential-cost curves, consistent with the idea that risk sensitivity is primarily changing tail / variance behavior.
 
-4. **Exponential cost can have a “sweet spot” at moderate $\theta$**  
+4. **Exponential cost can have a “sweet spot” at moderate $\theta$**
+
    In the sweep outputs, $\widehat{J}_{\theta}$ decreases from $\theta=0$ to a small positive $\theta$ for several $\sigma$ values, then increases for larger $\theta$.
+
    This can happen because moderate risk sensitivity reduces variability, while too-large $\theta$ drives stronger controls and increases the integral cost, and clipping ($u_{\max}$) can also influence the optimum.
 
 ---
