@@ -63,15 +63,7 @@ where the superscript indicates starting from $X_t=x$.
 For the risk-sensitive criterion, the dynamic programming equation yields the nonlinear HJB:
 
 $$
-V_t
-+ \inf_u \left\{
-    x^2 + \alpha u^2 + u V_x
-    + \frac{\sigma^2}{2} V_{xx}
-    + \frac{\theta \sigma^2}{2} (V_x)^2
-\right\}
-= 0,
-\qquad
-V(T,x) = g(x).
+V_t + \inf_u \left\{ x^2 + \alpha u^2 + u V_x + \frac{\sigma^2}{2} V_{xx} + \frac{\theta \sigma^2}{2} (V_x)^2 \right\} = 0, \qquad V(T,x) = g(x).
 $$
 
 The minimizer of the Hamiltonian is explicit:
